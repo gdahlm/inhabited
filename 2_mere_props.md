@@ -1,6 +1,6 @@
 # The Logic Inside Sets, and Why Mere Propositions Are Subsingletons
 
-A gentle follow-up to `homotopy_intro.md`. Classical logic says every
+A gentle follow-up to `1_homotopy_intro.md`. Classical logic says every
 proposition is either true or false. Homotopy type theory says propositions
 are spaces with points and paths. Where do the two views disagree, and where
 do they secretly agree? They agree exactly on **mere propositions**, and
@@ -183,5 +183,5 @@ collapses back into classical behavior.
   (1978), 461.
 - M. P. Fourman and A. Ščedrov, "The world's simplest axiom of choice
   fails", Manuscripta mathematica 38 (1982), 325-332.
-- Back to `homotopy_intro.md` §2 for the general bridge between types and
+- Back to `1_homotopy_intro.md` §2 for the general bridge between types and
   spaces.

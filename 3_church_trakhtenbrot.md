@@ -1,6 +1,6 @@
 # Undecidability at the Core: Church, Trakhtenbrot, and Deciding Truth
 
-A follow-up to `mere_props.md`. That document asked what a logic can *see*
+A follow-up to `2_mere_props.md`. That document asked what a logic can *see*
 from the inside (inhabitation, internal propositions, choice principles).
 This one asks what a logic can *compute*: given an arbitrary first-order
 sentence, can we decide whether it is true in every structure? The answers,
@@ -127,13 +127,13 @@ is maximal in a precise sense.
 **Inhabitation is undecidable.** Under Curry-Howard, "φ is valid" means
 "the proof type of φ is inhabited". Church's theorem says there is no
 algorithm that decides whether an arbitrary first-order proposition has a
-proof. In the vocabulary of `homotopy_intro.md`:
+proof. In the vocabulary of `1_homotopy_intro.md`:
 *inhabitation of proof types is already undecidable at the level of plain
 first-order logic.* Every later result in this family (undecidability of
 type inhabitation for ML with recursion, for System F, Rice's theorem on
 program behavior) inherits its hardness from exactly this core.
 
-**The internal/external pattern continues.** `mere_props.md` showed that the
+**The internal/external pattern continues.** `2_mere_props.md` showed that the
 internal logic of Set loses principles relative to the external logic (WSC
 fails internally; LEM holds only as a weak choice principle in disguise, by
 Diaconescu-Goodman-Myhill). Church and Trakhtenbrot add two more data
@@ -184,5 +184,5 @@ remain decidable.
   Model Theory", Springer, 1995.
 - nLab entries: "Entscheidungsproblem", "analytical hierarchy",
   "recursively enumerable set".
-- Back to `mere_props.md` for the internal/external contrast this document
+- Back to `2_mere_props.md` for the internal/external contrast this document
   extends.

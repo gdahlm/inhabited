@@ -10,20 +10,20 @@ and where witnesses come from.
 The four docs form one thread and build on each other. Read them in this
 order:
 
-1. **`homotopy_intro.md`**: types as spaces. Inhabited types, identity
+1. **`1_homotopy_intro.md`**: types as spaces. Inhabited types, identity
    types as paths, π₁(S¹) = ℤ, higher inductive types, and the truncation
    hierarchy ((-1)-truncated mere props, 0-truncated sets, 1-truncated
    groupoids), with annotated code for inhabitation by inspection and
    winding numbers on a discrete S¹.
-2. **`mere_props.md`**: the internal logic of sets. Propositions as
+2. **`2_mere_props.md`**: the internal logic of sets. Propositions as
    subsingletons, predicates as injections, why excluded middle is a weak
    choice principle in disguise (Diaconescu-Goodman-Myhill), and where the
    internal logic stops being classical (WSC fails: Fourman and Ščedrov).
-3. **`church_trakhtenbrot.md`**: undecidability at the core. Church 1936
+3. **`3_church_trakhtenbrot.md`**: undecidability at the core. Church 1936
    (validity is semi-decidable but not decidable) and Trakhtenbrot 1951
    (finite validity is not even enumerable), plus a table of what is and
    is not decidable.
-4. **`markov_principle.md`**: the capstone. Constructive math in one page,
+4. **`4_markov_principle.md`**: the capstone. Constructive math in one page,
    Markov's principle ("a search that cannot fail succeeds"), the contrast
    between constructive computation and declarative semantics (Codd's
    relational model), and exactly where MP sits between unique choice and

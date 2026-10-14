@@ -1,8 +1,8 @@
 # Markov's Principle: When a Search Cannot Fail, It Succeeds
 
-The capstone of this thread. `homotopy_intro.md` built the bridge between
-types and spaces; `mere_props.md` showed that classical principles are choice
-principles in disguise; `church_trakhtenbrot.md` showed that undecidability
+The capstone of this thread. `1_homotopy_intro.md` built the bridge between
+types and spaces; `2_mere_props.md` showed that classical principles are choice
+principles in disguise; `3_church_trakhtenbrot.md` showed that undecidability
 sits at the core of first-order logic. This document ties them together
 through a single principle, **Markov's principle (MP)**: the smallest slice
 of classical reasoning that computation actually needs, sitting exactly at
@@ -33,14 +33,14 @@ it only rules out one kind of bad news.
 
 **Excluded middle is not a law of logic.** `P ∨ ¬P` demands an actual
 decision procedure for P. For P = "machine M halts," no such procedure
-exists (see `church_trakhtenbrot.md`), so LEM cannot be proved in general.
-And per `mere_props.md`, even where LEM does hold (inside Set), it holds for
+exists (see `3_church_trakhtenbrot.md`), so LEM cannot be proved in general.
+And per `2_mere_props.md`, even where LEM does hold (inside Set), it holds for
 a choice-theoretic reason: by Diaconescu-Goodman-Myhill, LEM is equivalent
 to "every surjection from 2 splits," a weak form of choice. Classical logic
 is not the default setting; it is what you get when certain choice
 principles are available.
 
-In the vocabulary of `homotopy_intro.md`: classically, every proposition
+In the vocabulary of `1_homotopy_intro.md`: classically, every proposition
 behaves as a mere prop (a bit), and the content of proofs is discarded;
 constructively, proofs are first-class points, and the connectives tell you
 what shape they must have. The constructive position is not that classical
@@ -96,7 +96,7 @@ P(n). Other constructivists object that no argument establishes the machine
 will stop, only that its not stopping is impossible: that objection is
 exactly what MP settles in favor of the Russian school.
 
-This is the same shape as the results in `church_trakhtenbrot.md`:
+This is the same shape as the results in `3_church_trakhtenbrot.md`:
 
 - **Semi-decidability + impossibility of failure = actual result.** Take
   P(p) = "p codes a valid first-order proof of φ." Proof checking is
@@ -104,7 +104,7 @@ This is the same shape as the results in `church_trakhtenbrot.md`:
   theorem "there is a proof of φ" is equivalent to "φ is valid." MP says:
   if ¬¬(φ is valid), i.e. validity cannot be refuted, then there is an
   actual proof of φ, and the proof enumeration from §1 of
-  `church_trakhtenbrot.md` will find it.
+  `3_church_trakhtenbrot.md` will find it.
 - **The halting problem is the canonical instance.** The standard
   equivalent form of MP: "if a Turing machine does not run forever, then it
   halts." Here P(n) = "M halts within n steps," decidable; the witness is a
@@ -115,7 +115,7 @@ This is the same shape as the results in `church_trakhtenbrot.md`:
   ask for a direct termination argument (a decreasing measure, structural
   recursion), which is the constructive way to avoid needing MP at all.
 - **Witnesses are what computation outputs.** The annotated code in
-  `homotopy_intro.md` embodies this: it computes winding numbers as
+  `1_homotopy_intro.md` embodies this: it computes winding numbers as
   first-class data, not merely "a loop exists". A terminating search is a
   proof with the witness attached.
 
@@ -139,7 +139,7 @@ the semantic level. The clearest example is **Codd's relational model**:
   yes or no. The tuple t is not carried along. SQL's `EXISTS (…)` literally
   returns a Boolean and discards the witness row.
 - So when a database says "this query result is nonempty," it has asserted
-  `∥X∥`, mere inhabitation in the vocabulary of `mere_props.md`, without
+  `∥X∥`, mere inhabitation in the vocabulary of `2_mere_props.md`, without
   producing an element of X. The step from "the set is nonempty" to "here is
   a specific row" (a `SELECT … LIMIT 1`, or the first row a scan happens to
   hit) is exactly the choice step that the declarative semantics never
@@ -156,7 +156,7 @@ situations.
 
 ## 5. Exactly where MP sits: between unique choice and WSC
 
-`mere_props.md` introduced WSC ("every merely inhabited set is inhabited,"
+`2_mere_props.md` introduced WSC ("every merely inhabited set is inhabited,"
 ∥X∥ → X uniformly in X : U), which fails internally in Set (Fourman and
 Ščedrov) and externalizes to AC. How does MP relate? Precisely, as follows.
 
@@ -249,10 +249,10 @@ marks the boundary of how far any witness-extraction can be automated.
   choice principles (unique choice is provable; full AC is an axiom).
 - nLab entries: "Markov's principle" (with weak and analytic variants),
   "double negation", "propositional truncation".
-- Back to `mere_props.md` §2 for WSC and the internal/external distinction
+- Back to `2_mere_props.md` §2 for WSC and the internal/external distinction
   this document extends.
-- Back to `church_trakhtenbrot.md` §1 and §5 for the semi-decidability
+- Back to `3_church_trakhtenbrot.md` §1 and §5 for the semi-decidability
   results that MP operates on.
-- `homotopy_intro.md`: the annotated code in §1 (decidable inhabitation by
+- `1_homotopy_intro.md`: the annotated code in §1 (decidable inhabitation by
   inspection) and §3 (winding numbers as first-class data, witnesses you
   can hold).
