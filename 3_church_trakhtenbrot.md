@@ -3,11 +3,30 @@
 A follow-up to `2_mere_props.md`. That document asked what a logic can *see*
 from the inside (inhabitation, internal propositions, choice principles).
 This one asks what a logic can *compute*: given an arbitrary first-order
-sentence, can we decide whether it is true in every structure? The answers,
-due to Church (1936) and Trakhtenbrot (1951), are no, and for the finite
-world, no in a strictly stronger sense.
+sentence, can we decide whether it is true in every structure?
+
+**No.** Church (1936) showed that validity of first-order sentences is
+undecidable: computations encode into first-order structures, so deciding
+validity would decide the halting problem.
+
+**And for the finite world, no in a strictly stronger sense.** Trakhtenbrot
+(1951) went further: restricting to *finite* structures destroys even
+semi-decidability, because "has a finite model" directly encodes halting
+while compactness makes finiteness invisible to first-order logic itself.
+
+Undecidability is not an artifact of an overly rich system; it sits in the
+bare first-order core. This note builds up to those results: §1 sets up
+validity and the two levels of algorithmic power, and shows via Gödel's
+completeness theorem that validity is at least semi-decidable. §2 states
+Church's theorem and its proof sketch. §3 states Trakhtenbrot's theorem and
+why the finite world is strictly worse. §4 tabulates what is decidable, and
+how bad "not r.e." can get. §5 ties the results back to this thread.
 
 ## 1. Setup: validity, models, and two kinds of algorithmic power
+
+**Validity is at least semi-decidable (Gödel's completeness theorem); the
+open question, Hilbert's Entscheidungsproblem, is whether it is fully
+decidable.**
 
 First-order logic (FOL) sentences are evaluated in **structures** (models):
 a set of elements with relations, functions, and constants interpreted. A
@@ -68,14 +87,14 @@ problem itself).
 
 ## 3. Trakhtenbrot's theorem (1951): the finite world is worse
 
-Now restrict attention: φ is **finitely valid** if it is true in every
-*finite* structure. More sentences are finitely valid than valid; for
-example, "every nonempty linear order has a largest element" holds in all
-finite linear orders but fails in (ℕ, ≤).
-
 **Theorem (Trakhtenbrot).** The set of finitely valid sentences is **not
 recursively enumerable**. There is no semi-decision procedure at all: no
 algorithm can enumerate the finitely valid sentences, nor their complement.
+
+Here φ is **finitely valid** if it is true in every *finite* structure. More
+sentences are finitely valid than valid; for example, "every nonempty linear
+order has a largest element" holds in all finite linear orders but fails in
+(ℕ, ≤).
 
 **Proof sketch.** Use the computation-history idea again, now with the
 saving observation that *finite* models cannot fake computations (every
@@ -107,6 +126,9 @@ the full one.
 
 ## 4. A summary of what is decidable
 
+**Some questions are decidable; some only semi-decidable; some not
+enumerable at all.**
+
 | Question | Status |
 |---|---|
 | Validity in propositional logic | Decidable (truth tables; PSPACE-complete) |
@@ -123,6 +145,10 @@ questions. Undecidability here is not a mild deficiency; at this level it
 is maximal in a precise sense.
 
 ## 5. How this relates to our thread
+
+**Three connections: inhabitation of proof types is undecidable already at
+the first-order level; the internal/external pattern from `2_mere_props.md`
+continues; and mere props do not save you.**
 
 **Inhabitation is undecidable.** Under Curry-Howard, "φ is valid" means
 "the proof type of φ is inhabited". Church's theorem says there is no

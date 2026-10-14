@@ -1,9 +1,13 @@
 # From Inhabitation to Undecidability: Four Annotated Theory Notes
 
-Four gentle markdown theory notes that build on each other, with annotated
-code where computation makes the point. They explain what "existence"
-means, what a logic can see from the inside, where computation breaks down,
-and where witnesses come from.
+Type theory and homotopy answer "existence is inhabitation"; the internal
+logic of sets asks what a world can see from inside; Church and
+Trakhtenbrot mark the boundary of what is computable at all; Markov's
+principle is the smallest classical principle that lets a search which
+cannot fail actually succeed.
+
+This repo is four gentle markdown theory notes that build that thread in
+order, with annotated code where computation makes the point.
 
 ## Reading the markdown docs
 
@@ -27,16 +31,8 @@ order:
    Markov's principle ("a search that cannot fail succeeds"), the contrast
    between constructive computation and declarative semantics (Codd's
    relational model), and exactly where MP sits between unique choice and
-   the axiom of choice.
+   WSC.
 
 Each doc ends with a "Where to go next" section (real references) and
 cross-links to its neighbors, so you can also jump around once you know the
 shape of the thread.
-
-## The thread in one line
-
-Type theory and homotopy answer "existence is inhabitation"; the internal
-logic of sets asks what a world can see from inside; Church and
-Trakhtenbrot mark the boundary of what is computable at all; Markov's
-principle is the smallest classical principle that lets a search which
-cannot fail actually succeed.

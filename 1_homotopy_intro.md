@@ -1,15 +1,23 @@
 # Homotopy Theory and Inhabited Types: A Basic Introduction
 
-Two fields that look unrelated turn out to be two views of the same idea:
+Two fields that look unrelated ask the same kind of question: type theory
+asks *does this type have a value?*, homotopy theory asks *what is the shape
+of this space?*. The **homotopical interpretation** answers both at once:
+types are spaces, values are points, and proofs of equality are paths. In
+that picture, "inhabited" (non-empty) is the coarsest question a type can be
+asked, and homotopy theory is the study of everything *above* that bit of
+information.
 
-- **Type theory** asks: *does this type have a value?* (inhabitation)
-- **Homotopy theory** asks: *what is the shape of this space?* (deformation)
-
-The bridge is the **homotopical interpretation**: types are spaces. This note
-builds that bridge from both ends and works through its two simplest pieces
-in annotated code.
+This note builds the bridge from both ends: §1 develops the type-theory side,
+§2 states the dictionary, §3 develops the topology side, and §4 puts
+"inhabited" in its place in the hierarchy. The two simplest computations are
+worked out in annotated code where they make their points (§1 and §3).
 
 ## 1. Inhabited types (the type-theory side)
+
+In type theory, truth is existence: "P is true" literally means "the type P
+is inhabited", and for simple inductive types that question is decidable by
+inspection of the constructors.
 
 A type is **inhabited** if at least one value of that type exists.
 
@@ -40,11 +48,9 @@ already having a value of the type itself (a nullary constructor, or one
 whose arguments all come from types we already know are inhabited).
 (`Nat = Z | S Nat` is inhabited via `Z`; a type like `T = C T` is not.)
 
-**Computing it: inhabitation by inspection.** The rule above is an actual
-algorithm, and the bookkeeping becomes visible when you write it down. Each
-constructor is summarized by a pair `(arity, recursive)`: how many arguments
-it takes, and whether any of them is the type being defined. It is pure
-inspection: one pass over the constructors (O(k) for k constructors).
+**The computation.** The test is one pass over the constructors (O(k) for k
+constructors): each constructor is summarized by a pair `(arity, recursive)`,
+how many arguments it takes and whether any of them is the type being defined.
 
 ```python
 def is_inhabited(constructors: list[tuple[int, bool]]) -> bool:
@@ -77,7 +83,8 @@ by an infinite stream whenever `A` is).
 
 ## 2. The bridge: types as spaces
 
-The homotopical interpretation (the core idea of homotopy type theory, HoTT):
+The bridge is a dictionary between the two languages, and it makes
+"inhabited" mean "non-empty".
 
 - a **type** = a space; its values are the **points**
 - the **identity type** `a =_A b` = the space of *paths* from `a` to `b`
@@ -104,6 +111,10 @@ convertible," exactly as two spaces are "the same up to deformation."
 
 ## 3. Basic homotopy theory (the topology side)
 
+On the topology side the same questions have classical names, and the first
+invariant that goes beyond "inhabited" is the fundamental group: for the
+circle it is ℤ, computed by winding number.
+
 **Deformation.** A **homotopy** between maps `f, g : X → Y` is a continuous
 `H : X × [0,1] → Y` with `H(·, 0) = f` and `H(·, 1) = g`: a movie of
 continuously deforming `f` into `g`.
@@ -128,10 +139,10 @@ to deformation, not up to rigid shape.
 This is the first invariant that sees structure *beyond* a set of points:
 S¹ is not just non-empty, its loop space is classified by ℤ.
 
-**Computing it: winding numbers on a discrete circle.** Discretize S¹ into N
-positions (the group ℤ/N). A loop based at 0 is a walk of ±1 steps that
-returns to 0; its winding number is the net displacement divided by N. One
-pass over the walk computes it (O(L) for L steps).
+**The computation.** Discretize S¹ into N positions (the group ℤ/N); a loop
+based at 0 is a walk of ±1 steps that returns to 0, and its winding number is
+the net displacement divided by N. One pass over the walk computes it (O(L)
+for L steps).
 
 ```python
 N = 360  # one full turn = N unit steps
@@ -194,16 +205,17 @@ as first-class types.
 
 ## 4. How "inhabited" sits in the picture
 
+"Inhabited" is the first and coarsest question; homotopy theory is the study
+of everything *above* that bit of information.
+
 | Level | Type theory asks | Topology asks | Example invariant |
 |---|---|---|---|
 | (-1)-truncated (h-level 1): mere proposition | is the type inhabited? | is the space non-empty? | yes/no |
 | 0-truncated (h-level 2): set | are any two points connected by a path? | is the space path-connected? | yes/no |
 | 1-truncated (h-level 3): groupoid | what are the loops, up to homotopy? | what is the fundamental group? | π₁(S¹) = ℤ |
 
-"Inhabited" is the first and coarsest question; homotopy theory is the study
-of everything *above* that bit of information. Under the bridge: the empty
-type is the empty space, `Bool` is a two-point discrete space, and `Circle`
-is S¹ itself.
+Under the bridge: the empty type is the empty space, `Bool` is a two-point
+discrete space, and `Circle` is S¹ itself.
 
 ## 5. Where to go next
 

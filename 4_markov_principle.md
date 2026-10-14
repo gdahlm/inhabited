@@ -1,14 +1,33 @@
 # Markov's Principle: When a Search Cannot Fail, It Succeeds
 
 The capstone of this thread. `1_homotopy_intro.md` built the bridge between
-types and spaces; `2_mere_props.md` showed that classical principles are choice
-principles in disguise; `3_church_trakhtenbrot.md` showed that undecidability
-sits at the core of first-order logic. This document ties them together
-through a single principle, **Markov's principle (MP)**: the smallest slice
-of classical reasoning that computation actually needs, sitting exactly at
-the boundary between "a truth value" and "a witness".
+types and spaces; `2_mere_props.md` showed that classical principles are
+choice principles in disguise; `3_church_trakhtenbrot.md` showed that
+undecidability sits at the core of first-order logic. This document ties
+them together through a single principle, **Markov's principle (MP)**.
+
+**MP is the smallest slice of classical reasoning that computation actually
+needs.** For a decidable predicate P on ℕ, "the search cannot be shown to
+fail" (¬¬∃n. P(n)) already implies "the search succeeds" (∃n. P(n)), with
+the witness extractable. It sits exactly at the boundary between "a truth
+value" and "a witness": the Russian school accepts it on computational
+grounds, Brouwer's school rejects it, and intuitionistic arithmetic cannot
+settle it either way.
+
+The argument runs in five steps: §1 gives constructive math in one page
+(proofs as constructions, and why double negation and excluded middle are no
+longer free). §2 states MP and three facts about it. §3 reads it
+computationally: semi-decidability plus impossibility of failure yields an
+actual result, and where the principle stops. §4 contrasts computation with
+declarative frameworks that throw witnesses away (Codd's relational model).
+§5 positions MP exactly between unique choice and WSC among the choice
+principles.
 
 ## 1. Constructive math in one page
+
+**Proofs are constructions, and each connective says what shape a proof must
+have; the two classical habits that break are double-negation elimination
+and excluded middle.**
 
 Classical math treats propositions as true or false, with proofs as
 certificates we can ignore. Constructive math (the BHK reading, after
@@ -83,6 +102,10 @@ about actual searches.
 
 ## 3. The computation reading: a search that cannot fail, succeeds
 
+**MP's content is internal: externally a decidable search either halts or
+diverges anyway, but given a proof h : ¬¬∃n. P(n) as an object of the
+theory, MP is what licenses extracting the witness n.**
+
 For decidable P there is an actual algorithm: check P(0), P(1), P(2), … in
 order. It halts exactly when some n satisfies P(n), and then outputs the
 least such n. Externally (in the classical metatheory), for each concrete P
@@ -128,6 +151,11 @@ undecidabilities are beyond the reach of any witness-extraction principle.
 
 ## 4. The real-world contrast: declarative semantics throw away witnesses
 
+**The same witness discipline separates computation from the declarative
+frameworks built on it: a finished program carries its output, while
+Codd's relational model evaluates existentials as bare truth values and
+discards the witness row.**
+
 Computation is inherently constructive: a program that finishes has produced
 its output, and an existential claim backed by a finished search carries its
 witness. But many of the frameworks we actually use are not constructive at
@@ -155,6 +183,11 @@ of the standard principles for closing it in specific, computable
 situations.
 
 ## 5. Exactly where MP sits: between unique choice and WSC
+
+**MP sits between unique choice (provably free, since uniqueness removes the
+need for choice) and WSC (which fails internally in Set): for decidable
+subtypes of ℕ, MP implies the corresponding WSC fragment, because ¬¬p is
+strictly weaker input than p.**
 
 `2_mere_props.md` introduced WSC ("every merely inhabited set is inhabited,"
 ∥X∥ → X uniformly in X : U), which fails internally in Set (Fourman and
@@ -249,7 +282,7 @@ marks the boundary of how far any witness-extraction can be automated.
   choice principles (unique choice is provable; full AC is an axiom).
 - nLab entries: "Markov's principle" (with weak and analytic variants),
   "double negation", "propositional truncation".
-- Back to `2_mere_props.md` §2 for WSC and the internal/external distinction
+- Back to `2_mere_props.md` §3 for WSC and the internal/external distinction
   this document extends.
 - Back to `3_church_trakhtenbrot.md` §1 and §5 for the semi-decidability
   results that MP operates on.
