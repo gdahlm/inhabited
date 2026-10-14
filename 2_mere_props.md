@@ -79,7 +79,7 @@ between points, even paths between paths. Then "P is true" means "the space
 P has a point", and a space may have *many* points connected in interesting
 ways.
 
-A concrete contrast (the code that computes it is in `homotopy_intro.md`
+A concrete contrast (the code that computes it is in `1_homotopy_intro.md`
 §3):
 
 - On the circle S¹, the identity type `base = base` is the space of loops at
