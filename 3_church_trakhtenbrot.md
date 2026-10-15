@@ -157,7 +157,8 @@ proof. In the vocabulary of `1_homotopy_intro.md`:
 *inhabitation of proof types is already undecidable at the level of plain
 first-order logic.* Every later result in this family (undecidability of
 type inhabitation for ML with recursion, for System F, Rice's theorem on
-program behavior) inherits its hardness from exactly this core.
+program behavior, see `4_rice_theorem.md`) inherits its hardness from exactly
+this core.
 
 **The internal/external pattern continues.** `2_mere_props.md` showed that the
 internal logic of Set loses principles relative to the external logic (WSC
@@ -174,7 +175,9 @@ points to the same pattern:
 Each shift of perspective (external meta-logic ↔ internal logic; all
 structures ↔ finite structures) changes what is decidable. Undecidability
 is not an artifact of an overly rich system; it is present in the bare
-first-order core.
+first-order core. The pattern reaches its sharpest form in
+`6_godel_tarski.md`: a formal system cannot even define its own truth
+predicate.
 
 **Mere propositions do not save you.** The 0-level of logic (propositional
 logic, where truth values are fixed bits and everything is "mere") is

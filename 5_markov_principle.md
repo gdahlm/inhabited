@@ -1,10 +1,10 @@
 # Markov's Principle: When a Search Cannot Fail, It Succeeds
 
-The capstone of this thread. `1_homotopy_intro.md` built the bridge between
-types and spaces; `2_mere_props.md` showed that classical principles are
-choice principles in disguise; `3_church_trakhtenbrot.md` showed that
-undecidability sits at the core of first-order logic. This document ties
-them together through a single principle, **Markov's principle (MP)**.
+`1_homotopy_intro.md` built the bridge between types and spaces;
+`2_mere_props.md` showed that classical principles are choice principles in
+disguise; `3_church_trakhtenbrot.md` and `4_rice_theorem.md` located
+undecidability at the core, for sentences and programs alike. This document
+ties them together through a single principle, **Markov's principle (MP)**.
 
 **MP is the smallest slice of classical reasoning that computation actually
 needs.** For a decidable predicate P on ℕ, "the search cannot be shown to
@@ -261,8 +261,8 @@ positioned among choice principles, MP sits between unique choice (provable,
 since uniqueness removes the need for choice) and WSC (which fails internally
 in Set and externalizes to AC): for decidable subtypes of ℕ, MP implies the
 corresponding WSC fragment because ¬¬p is weaker input than p, while the
-reverse direction would require double-negation elimination. The thread's
-moral, now complete: classical principles are stratified choice principles,
+reverse direction would require double-negation elimination. The moral this
+document contributes: classical principles are stratified choice principles,
 computation is the regime where witnesses are mandatory, and undecidability
 marks the boundary of how far any witness-extraction can be automated.
 
