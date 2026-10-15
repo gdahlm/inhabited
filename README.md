@@ -49,3 +49,12 @@ order:
 Each doc ends with a "Where to go next" section (real references) and
 cross-links to its neighbors, so you can also jump around once you know the
 shape of the thread.
+
+## Appendix
+
+`99_appendix_interpretability.md` applies the thread to its most concrete
+current setting: LLM and Transformer interpretability. Explanations as
+witnesses, Rice on behavioral properties, Church and Trakhtenbrot on the
+dream of formal verification, Markov's principle as the exact shape of
+current tooling (search, test, halt), and Tarski and Gödel at the deepest
+layer.
